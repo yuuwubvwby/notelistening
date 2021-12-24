@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>听音训练</title>
+</head>
+<body>
+<button type="button" onclick="clk_start()" style="height:100px;width:80%;font-size:20px;" id ="btn_start"> 开始测试 </button><br>
+<HR style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width:"80%" color=#987cb9 SIZE=10>
+<br>
+<button type="button" onclick="choose1()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="1 Dol" > 1 Dol  C</button><br><br>
+<button type="button" onclick="choose2()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="2 Re" > 2 Re  D</button><br><br>
+<button type="button" onclick="choose3()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="3 Mi" > 3 Mi  E</button><br>
+<button type="button" onclick="choose4()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="4 Fa" > 4 Fa  F</button><br><br>
+<button type="button" onclick="choose5()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="5 Sol" > 5 Sol  G</button><br><br>
+<button type="button" onclick="choose6()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="6 La" > 6 La  A</button><br><br>
+<button type="button" onclick="choose7()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="7 Ti" > 7 Ti  B</button><br>
+<button type="button" onclick="choose8()" style="height:40px;width:80%;font-size:20px;visibility:hidden;" id="8 Dol" > 8 Dol  C</button>
+<p>快捷键——1-8、Space/Enter</p><p id="conclusion">已完成0次，正确0次</p>
+<audio src="beginning.wav" onended="sing_note()" id=start_player></audio>
+<audio id=note_player></audio>
+
+<script>
+	var stper=document.getElementById("start_player");
+	var ntper=document.getElementById("note_player");
+	var note=0;
+    var cc = 0;
+    var pc = 0;
+        var isPiss = 0;
+        document.onkeydown = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 49 || e.keyCode == 97) { choose1(); }
+            if (e && e.keyCode == 50 || e.keyCode == 98) { choose2(); }
+            if (e && e.keyCode == 51 || e.keyCode == 99) { choose3(); }
+            if (e && e.keyCode == 52 || e.keyCode == 100) { choose4(); }
+            if (e && e.keyCode == 53 || e.keyCode == 101) { choose5(); }
+            if (e && e.keyCode == 54 || e.keyCode == 102) { choose6(); }
+            if (e && e.keyCode == 55 || e.keyCode == 103) { choose7(); }
+            if (e && e.keyCode == 56 || e.keyCode == 104) { choose8(); }
+            if (e && e.keyCode == 32 || e.keyCode == 13) { clk_start(); }
+        };
+    function clk_start() { for (var i = 1; i <= 8; i++) {document.getElementById(i + " " + singname(i)).style.visibility = "hidden"; };document.getElementById("btn_start").innerHTML="音频播放中...";stper.play();note=Math.trunc((Math.random()*100)%8+1);ntper.src=note+".wav";}
+	
+	function sing_note(){
+		ntper.play();
+        document.getElementById("btn_start").innerHTML = "请选择..."
+        for (var i = 1; i <= 8; i++) {            document.getElementById(i + " " + singname(i)).style.visibility ="visible";        }
+	}
+	
+    function choose1(){pc = pc + 1;ntper.play();if(note==1){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+    function choose2(){pc = pc + 1;ntper.play();if(note==2){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+    function choose3(){pc = pc + 1;ntper.play();if(note==3){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+    function choose4(){pc = pc + 1;ntper.play();if(note==4){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+    function choose5(){pc = pc + 1;ntper.play();if(note==5){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+    function choose6(){pc = pc + 1;ntper.play();if(note==6){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+    function choose7(){pc = pc + 1;ntper.play();if(note==7){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+    function choose8(){pc = pc + 1;ntper.play();if(note==8){cc=cc+1;document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            True                 AGAIN?";}else{document.getElementById("conclusion").innerHTML="已完成"+pc+"次，正确"+cc+"次，正确率"+parseInt(cc/pc*100)+"%";document.getElementById("btn_start").innerHTML=note+"   "+singname(note)+"            False                  AGAIN?"}};
+
+	
+	function singname(i){
+	switch(i)
+{
+    case 1:
+        return("Dol");
+        break;
+    case 2:
+        return("Re");
+        break;
+    case 3:
+        return("Mi");
+        break;
+    case 4:
+        return("Fa");
+        break;
+    case 5:
+        return("Sol");
+        break;
+    case 6:
+        return("La");
+        break;
+    case 7:
+        return("Ti");
+        break;
+    case 8:
+        return("Dol");
+        break;
+}
+}
+</script>
+
+</body>
+</html>
